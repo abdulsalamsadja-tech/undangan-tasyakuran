@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Undangan Tasyakuran</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
+ 
+<style>
+   html{
+   scroll-behavior: smooth;
+}
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+        margin: 0;
+      font-family: 'Montserrat', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      overflow-x: hidden;
+    }
+
+    
+    /* =========================
+        COVER
+    ========================== */
+      .cover{
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    color: white;
+
+    background-image: url("gunung.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* FIX HP */
+    -webkit-background-size: cover;
+    background-attachment: scroll;
+
+    transition: all 1s ease;
+
+    z-index: 9999;
+}
+     /* Overlay */
+
+    .cover::before{
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(2px);
+    }
+     /* Content */
+
+    .cover-content{
+      position: relative;
+      z-index: 2;
+
+      width: 90%;
+      max-width: 500px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+
+    }
+     .small-text{
+      font-size: 14px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+
+      opacity: 0.9;
+    }
+     .couple-name{
+      font-family: 'Fraunces', serif;
+      font-size: 70px;
+      font-weight: 600;
+      line-height: 1.1;
+    }
+    .date{
+      font-size: 15px;
+      letter-spacing: 2px;
+    }
+     .guest{
+      margin-top: 30px;
+      font-size: 14px;
+      opacity: 0.9;
+      line-height: 1.7;
+    }
+     .guest-name{
+      margin-top: 5px;
+      font-size: 18px;
+      font-weight: 500;
+    }
+     /* Button */
+
+    .open-btn{
+      margin-top: 25px;
+
+      padding: 14px 30px;
+
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 99px;
+
+      background: rgba(110, 94, 94, 0.12);
+      color: white;
+
+      font-size: 14px;
+      letter-spacing: 1px;
+
+      cursor: pointer;
+
+      transition: 0.3s ease;
+      backdrop-filter: blur(4px); 
+    }
+    .open-btn:hover{
+      background: white;
+      color: black;
+    }
+     /* Responsive */
+
+    @media(max-width: 400px){
+
+      .couple-name{
+        font-size: 48px;
+      }
+      .date{
+        font-size: 13px;
+      }
+
+      .open-btn{
+        width: 100%;
+      }
+
+    }
+    .cover.hide{
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: scale(1.08);
+}
+  
+/* HERO */
+
+.hero{
+    position: relative;
+    height: 70vh;
+
+    background-image: url("gunung.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* FIX HP */
+    -webkit-background-size: cover;
+    background-attachment: scroll;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+.hero-overlay{
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(2px);
+}
+
+.hero-content{
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-small{
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 13px;
+    opacity: .8;
+}
+
+.hero-title{
+    margin-top: 15px;
+
+    font-family: 'Fraunces', serif;
+    font-size: 55px;
+    line-height: 1.2;
+}
+
+.hero-date{
+    margin-top: 15px;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+/* CONTENT */
+
+.content-wrap{
+    width: 90%;
+    max-width: 700px;
+
+    margin: auto;
+    padding: 70px 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* CARD */
+
+.card{
+    background: rgba(255,255,255,0.05);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    padding: 35px 28px;
+
+    border-radius: 24px;
+
+    backdrop-filter: blur(10px);
+
+    line-height: 1.8;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.2);
+}
+
+.card h3{
+    margin-bottom: 18px;
+
+    font-size: 24px;
+    font-family: 'Fraunces', serif;
+}
+
+/* DETAIL */
+
+.detail-card{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.detail-item span{
+    font-size: 14px;
+    opacity: .7;
+}
+
+.detail-item p{
+    margin-top: 5px;
+    font-size: 17px;
+}
+
+/* BUTTON */
+
+.map-btn{
+    margin-top: 10px;
+
+    display: inline-block;
+
+    padding: 14px 22px;
+
+    border-radius: 999px;
+
+    text-decoration: none;
+
+    background: white;
+    color: black;
+
+    font-weight: 600;
+
+    transition: .3s;
+}
+
+.map-btn:hover{
+    transform: translateY(-3px);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:600px){
+
+    .hero-title{
+        font-size: 40px;
+    }
+
+    .card{
+        padding: 28px 22px;
+    }
+
+}
+
+
+.invitation{
+    background: #0f0f0f;
+    color: white;
+    min-height: 100vh;
+
+    opacity: 0;
+    transform: translateY(40px);
+
+    transition: all 1.2s ease;
+}
+
+.invitation.show{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+body.lock{
+    overflow: hidden;
+}
+
+/* COUNTDOWN */
+
+.countdown{
+    margin-top: 25px;
+
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.time-box{
+    width: 90px;
+
+    padding: 18px 10px;
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.06);
+
+    text-align: center;
+
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.time-box span{
+    display: block;
+
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.time-box small{
+    opacity: .7;
+    font-size: 13px;
+}
+#rsvp-form{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+#rsvp-form input,
+#rsvp-form select{
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+#rsvp-form button{
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: white;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#rsvp-form button:hover{
+  transform: translateY(-2px);
+  background: #f2f2f2;
+}
+</style>
+</head>
+
+<body class="lock">
+
+  <!-- COVER -->
+
+  <section class="cover" id="cover">
+
+    <div class="cover-content">
+
+      <p class="small-text">Undangan Tasyakuran Hari Raya Qurban</p>
+
+      <h1 class="couple-name" id="couple-name">
+        nama dosen 
+      </h1>
+
+      <p class="date">
+        Minggu, 20 Desember 2026
+      </p>
+
+      <div class="guest">
+        <p>Kepada Yth.</p>
+        <h3 class="guest-name" id="guest-name">Bapak/Ibu Tamu Undangan</h3>
+      </div>
+
+      <button class="open-btn" id="open-btn">
+        Buka Undangan
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <main class="main-content">
+
+  <!-- HALAMAN ISI UNDANGAN -->
+<section class="invitation">
+
+  <!-- HERO -->
+  <div class="hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+      <p class="hero-small">
+        Tasyakuran Hari Raya Qurban
+      </p>
+
+      <h2 class="hero-title">
+        Keluarga Besar<br>
+        Nama Dosen
+      </h2>
+
+      <p class="hero-date">
+        Minggu, 20 Desember 2026
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- ISI -->
+  <div class="content-wrap">
+    <div class="card countdown-card">
+
+  <h3>Menuju Acara</h3>
+
+  <div class="countdown">
+
+    <div class="time-box">
+      <span id="days">0</span>
+      <small>Hari</small>
+    </div>
+
+    <div class="time-box">
+      <span id="hours">0</span>
+      <small>Jam</small>
+    </div>
+
+    <div class="time-box">
+      <span id="minutes">0</span>
+      <small>Menit</small>
+    </div>
+
+    <div class="time-box">
+      <span id="seconds">0</span>
+      <small>Detik</small>
+    </div>
+
+  </div>
+
+</div>
+
+    <div class="card">
+
+      <h3>Assalamu’alaikum Wr. Wb.</h3>
+
+      <p>
+        Dengan penuh rasa syukur dan kebahagiaan,
+        kami mengundang Bapak/Ibu/Saudara/i
+        untuk hadir dalam acara Tasyakuran
+        Hari Raya Qurban.
+      </p>
+
+    </div>
+
+    <!-- DETAIL ACARA -->
+    <div class="card detail-card">
+
+      <h3>Detail Acara</h3>
+
+      <div class="detail-item">
+        <span>📅 Hari/Tanggal</span>
+        <p>Minggu, 20 Desember 2026</p>
+      </div>
+
+      <div class="detail-item">
+        <span>🕘 Waktu</span>
+        <p>09.00 WIB - Selesai</p>
+      </div>
+
+      <div class="detail-item">
+        <span>📍 Lokasi</span>
+        <p>
+          Jl. Contoh Alamat No. 123<br>
+          Semarang, Jawa Tengah
+        </p>
+      </div>
+
+      <a href="#" class="map-btn">
+        Buka Google Maps
+      </a>
+
+    </div>
+
+    <!-- PENUTUP -->
+   <div class="card">
+
+  <h3>Konfirmasi Kehadiran</h3>
+
+  <p>Silakan isi form di bawah ini:</p>
+
+  <form id="rsvp-form">
+
+    <input type="text" id="nama" placeholder="Nama Anda" required>
+
+    <select id="kehadiran" required>
+      <option value="">Pilih Kehadiran</option> 
+      <option value="Hadir">Hadir</option> 
+      <option value="Tidak Hadir">Tidak Hadir</option> 
+    </select>
+
+    <input type="number" id="jumlah" placeholder="Jumlah orang" min="1" value="1">
+
+    <button type="submit">Kirim RSVP</button>
+
+  </form>
+ <br>
+ <br>
+ <br>
+ <p>
+        Merupakan suatu kehormatan dan kebahagiaan
+        bagi kami apabila Bapak/Ibu/Saudara/i
+        berkenan hadir.
+      </p>
+
+      <h3 style="margin-top:25px;">
+        Wassalamu’alaikum Wr. Wb.
+      </h3>
+
+</div>
+
+     
+    
+
+  
+</section>
+
+</main>
+<script>
+  // ===============================
+// AMBIL PARAMETER URL
+// ===============================
+
+const urlParams = new URLSearchParams(window.location.search);
+
+const dosen = urlParams.get("dosen");
+
+const dosenName = document.getElementById("couple-name");
+
+if (dosen) {
+    dosenName.textContent = decodeURIComponent(dosen);
+}
+
+
+// ===============================
+// BUKA UNDANGAN
+// ===============================
+
+const openBtn = document.getElementById("open-btn");
+const cover = document.getElementById("cover");
+const invitation = document.querySelector(".invitation");
+
+openBtn.addEventListener("click", function () {
+
+    document.body.classList.remove("lock");
+
+    cover.classList.add("hide");
+
+    invitation.classList.add("show");
+
+    setTimeout(() => {
+
+        invitation.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }, 500);
+
+});
+
+
+// ===============================
+// COUNTDOWN
+// ===============================
+
+const eventDate = new Date("may 29, 2026 09:00:00").getTime();
+
+const countdown = setInterval(() => {
+
+    const now = new Date().getTime();
+
+    const distance = eventDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+    const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+    );
+
+    const minutes = Math.floor(
+        (distance % (1000 * 60 * 60))
+        / (1000 * 60)
+    );
+
+    const seconds = Math.floor(
+        (distance % (1000 * 60))
+        / 1000
+    );
+
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+
+    if (distance < 0) {
+
+        clearInterval(countdown);
+
+        document.getElementById("days").innerHTML = 0;
+        document.getElementById("hours").innerHTML = 0;
+        document.getElementById("minutes").innerHTML = 0;
+        document.getElementById("seconds").innerHTML = 0;
+
+    }
+
+}, 1000);
+
+
+// ===============================
+// RSVP + ANTI SPAM
+// ===============================
+
+const form = document.getElementById("rsvp-form");
+
+let isSubmitting = false;
+
+form.addEventListener("submit", async function (e) {
+
+    e.preventDefault();
+
+    // anti double submit
+    if (isSubmitting) return;
+
+    isSubmitting = true;
+
+    const submitBtn = form.querySelector("button");
+
+    submitBtn.disabled = true;
+    submitBtn.innerText = "Mengirim...";
+
+    const nama = document.getElementById("nama").value.trim();
+
+    const kehadiran = document.getElementById("kehadiran").value;
+
+    const jumlah = document.getElementById("jumlah").value;
+
+    // validasi sederhana
+    if (nama.length < 2) {
+
+        alert("Nama terlalu pendek");
+
+        resetButton();
+        return;
+    }
+
+    // anti spam localStorage
+    const lastSubmit = localStorage.getItem("lastSubmit");
+
+    if (lastSubmit) {
+
+        const now = Date.now();
+
+        const diff = now - parseInt(lastSubmit);
+
+        // 1 menit
+        if (diff < 60000) {
+
+            alert("Tunggu 1 menit sebelum mengirim lagi");
+
+            resetButton();
+            return;
+        }
+    }
+
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxTyiM_apXuZNT58Gx_zzcLEvPer-X9xHtilTfMD2q2vG8ReBTsz1yaGueg_wqY3ML2lA/exec";
+
+    try {
+
+        console.log("Mengirim data...");
+
+const response = await fetch(scriptURL, {
+
+    method: "POST",
+
+    mode: "cors",
+
+    headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+    },
+
+    body: new URLSearchParams({
+        nama: nama,
+        kehadiran: kehadiran,
+        jumlah: jumlah
+    })
+
+});
+
+const result = await response.text();
+
+console.log("HASIL:", result);
+
+console.log(result);
+
+if (result.includes("ERROR")) {
+
+    alert(result);
+
+} else {
+
+    localStorage.setItem("lastSubmit", Date.now());
+
+     alert("Data berhasil disimpan! Terima kasih atas konfirmasi Anda.");
+
+            form.reset();
+
+}
+
+    } catch (error) {
+
+        console.log(error);
+
+        alert("Gagal mengirim RSVP");
+
+    }
+
+    resetButton();
+
+});
+
+
+// ===============================
+// RESET BUTTON
+// ===============================
+
+function resetButton() {
+
+    const submitBtn = form.querySelector("button");
+
+    submitBtn.disabled = false;
+
+    submitBtn.innerText = "Kirim RSVP";
+
+    isSubmitting = false;
+
+}
+</script>
+</body>
+</html>
