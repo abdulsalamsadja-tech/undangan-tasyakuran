@@ -585,6 +585,9 @@ body.lock{
 </section>
 
 </main>
+   <audio id="bg-music" loop>
+  <source src="takbiran.mp3" type="audio/mpeg">
+</audio>
 <script>
   // ===============================
 // AMBIL PARAMETER URL
@@ -604,12 +607,15 @@ if (dosen) {
 // ===============================
 // BUKA UNDANGAN
 // ===============================
-
 const openBtn = document.getElementById("open-btn");
 const cover = document.getElementById("cover");
 const invitation = document.querySelector(".invitation");
+const music = document.getElementById("bg-music");
 
 openBtn.addEventListener("click", function () {
+
+    // play musik
+    music.play();
 
     document.body.classList.remove("lock");
 
@@ -626,7 +632,6 @@ openBtn.addEventListener("click", function () {
     }, 500);
 
 });
-
 
 // ===============================
 // COUNTDOWN
